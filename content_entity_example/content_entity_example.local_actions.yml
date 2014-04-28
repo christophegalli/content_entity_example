@@ -1,0 +1,7 @@
+content_entity_example.add:
+  route_name: content_entity_example.add
+  title: 'Add Content Entity Example Content'
+  appears_on:
+    - content_entity_example.list
+    - content_entity_example.view
+    

@@ -1,0 +1,17 @@
+content_entity_example.settings_tab:
+  route_name: content_entity_example.settings
+  title: 'Settings'
+  base_route: content_entity_example.settings
+content_entity_example.view:
+  route_name: content_entity_example.view
+  base_route: content_entity_example.view
+  title: 'View'
+content_entity_example.page_edit:
+  route_name: content_entity_example.edit
+  base_route: content_entity_example.view
+  title: Edit
+content_entity_example.delete_confirm:
+  route_name: content_entity_example.delete
+  base_route: content_entity_example.view
+  title: Delete
+  weight: 10
