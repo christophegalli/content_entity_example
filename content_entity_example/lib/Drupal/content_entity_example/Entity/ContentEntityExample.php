@@ -24,8 +24,8 @@ use Drupal\user\UserInterface;
  *     "list_builder" = "Drupal\content_entity_example\Entity\Controller\ContentEntityExampleListController",
  *
  *     "form" = {
- *       "add" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleFormController",
- *       "edit" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleFormController",
+ *       "add" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleForm",
+ *       "edit" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleForm",
  *       "delete" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleDeleteForm",
  *     },
  *   },
