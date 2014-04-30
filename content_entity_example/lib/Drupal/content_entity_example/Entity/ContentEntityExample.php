@@ -137,7 +137,26 @@ class ContentEntityExample extends ContentEntityBase implements ContentEntityExa
     $fields['user_id'] = FieldDefinition::create('entity_reference')
       ->setLabel(t('User ID'))
       ->setDescription(t('The ID of the associated user.'))
-      ->setSettings(array('target_type' => 'user'));
+      ->setSetting('target_type', 'user')
+      ->setSetting('handler', 'default')
+      ->setDisplayOptions('view', array(
+        'label' => 'above',
+        'type' => 'entity_reference',
+        'weight' => -6,
+      ))
+      ->setDisplayOptions('form', array(
+        'type' => 'entity_reference_autocomplete',
+        'settings' => array(
+          'match_operator' => 'CONTAINS',
+          'size' => 60,
+          'autocomplete_type' => 'tags',
+          'placeholder' => '',
+        ),
+        'weight' => -6,
+      ))
+      ->setDisplayConfigurable('form', TRUE)
+      ->setDisplayConfigurable('view', TRUE);
+
 
     $fields['langcode'] = FieldDefinition::create('language')
       ->setLabel(t('Language code'))
