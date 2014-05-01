@@ -24,16 +24,6 @@ class ContentEntityExampleForm extends ContentEntityForm {
     $form = parent::buildForm($form, $form_state);
     $entity = $this->entity;
 
-    /* $form['user_id'] = array(
-      '#type' => 'textfield',
-      '#title' => 'UID',
-      '#default_value' => $entity->user_id->target_id,
-      '#size' => 60,
-      '#maxlength' => 128,
-      '#required' => TRUE,
-      '#weight' => -10,
-    );*/
-
     $form['langcode'] = array(
       '#title' => t('Language'),
       '#type' => 'language_select',

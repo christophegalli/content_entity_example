@@ -28,6 +28,7 @@ use Drupal\user\UserInterface;
  *       "edit" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleForm",
  *       "delete" = "Drupal\content_entity_example\Entity\Form\ContentEntityExampleDeleteForm",
  *     },
+ *     "access" = "Drupal\content_entity_example\ContentEntityExampleAccessController",
  *   },
  *   base_table = "content_entity_example",
  *   admin_permission = "administer content_entity_example entity",
