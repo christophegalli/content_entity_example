@@ -30,7 +30,7 @@ use Drupal\user\UserInterface;
  *     },
  *   },
  *   base_table = "content_entity_example",
- *   admin_permission = "admin content_entity_example entity",
+ *   admin_permission = "administer content_entity_example entity",
  *   fieldable = TRUE,
  *   entity_keys = {
  *     "id" = "id",
@@ -135,8 +135,8 @@ class ContentEntityExample extends ContentEntityBase implements ContentEntityExa
       ->setDisplayConfigurable('view', TRUE);
 
     $fields['user_id'] = FieldDefinition::create('entity_reference')
-      ->setLabel(t('User ID'))
-      ->setDescription(t('The ID of the associated user.'))
+      ->setLabel(t('User Name'))
+      ->setDescription(t('The Name of the associated user.'))
       ->setSetting('target_type', 'user')
       ->setSetting('handler', 'default')
       ->setDisplayOptions('view', array(

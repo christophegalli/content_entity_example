@@ -4,7 +4,7 @@ content_entity_example.view:
     _entity_view: 'content_entity_example'
     _title: 'Content Entity Example Content'
   requirements:
-    _permission: 'view content_entity_example entity'
+    _entity_access: 'content_entity_example.view'
 content_entity_example.list:
   path: '/content-entity-example/list'
   defaults:
@@ -18,21 +18,21 @@ content_entity_example.add:
     _entity_form: content_entity_example.add
     _title: 'Add ContentEntityExample Content'
   requirements:
-    _permission: 'add content_entity_example entity'
+    _entity_create_access: 'content_entity_example'
 content_entity_example.edit:
   path: '/content-entity-example/{content_entity_example}/edit'
   defaults:
     _entity_form: content_entity_example.edit
     _title: 'Edit ContentEntityExample content'
   requirements:
-    _permission: 'edit content_entity_example entity'
+    _entity_access: 'content_entity_example.edit'
 content_entity_example.delete:
   path: '/content-entity-example/{content_entity_example}/delete'
   defaults:
     _entity_form: content_entity_example.delete
     _title: 'Delete ContentEntityExample Content '
   requirements:
-    _permission: 'delete content_entity_example entity'
+    _entity_access: 'content_entity_example.delete'
 content_entity_example.settings:
   path: 'admin/structure/content_entity_example_settings'
   defaults:

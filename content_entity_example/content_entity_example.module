@@ -30,7 +30,7 @@ function content_entity_example_permission() {
     'edit content_entity_example entity' => array(
       'title' => t('Edit entity content'),
     ),
-    'admininister content_entity_example entity' => array(
+    'administer content_entity_example entity' => array(
       'title' => t('Administer settings'),
     ),
   );

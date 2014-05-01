@@ -4,4 +4,3 @@ content_entity_example.add:
   appears_on:
     - content_entity_example.list
     - content_entity_example.view
-    
