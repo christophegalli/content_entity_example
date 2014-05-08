@@ -17,9 +17,10 @@ use Drupal\simpletest\WebTestBase;
  */
 class ContentEntityExampleTest extends WebTestBase {
 
-  public static $modules = array('content_entity_example', 'block', 'entity_reference');
+  public static $modules = array('content_entity_example', 'block',
+    'entity_reference');
 
-  protected $web_user;
+  protected $webUser;
 
   /**
    * {@inheritdoc}
@@ -32,10 +33,13 @@ class ContentEntityExampleTest extends WebTestBase {
     );
   }
 
+  /**
+   * Set up instance for starting the test.
+   */
   public function setUp() {
     parent::setUp();
 
-    $this->web_user = $this->drupalCreateUser(array(
+    $this->webUser = $this->drupalCreateUser(array(
      'add content_entity_example entity',
      'edit content_entity_example entity',
      'view content_entity_example entity',
@@ -49,25 +53,25 @@ class ContentEntityExampleTest extends WebTestBase {
    */
   public function testContentEntityExample() {
 
-    //  Anonymous User should not see the link to the listing.
+    // Anonymous User should not see the link to the listing.
     $this->assertNoText(t('Content Entity Example Listing'));
 
-    $this->drupalLogin($this->web_user);
+    $this->drupalLogin($this->webUser);
 
     // Web_user user has the right to view listing.
     $this->assertLink(t('Content Entity Example Listing'));
 
     $this->clickLink(t('Content Entity Example Listing'));
 
-    // Web_user can add entity content.
+    // WebUser can add entity content.
     $this->assertLink(t('Add Content Entity Example Content'));
 
     $this->clickLink(t('Add Content Entity Example Content'));
 
-    $this->assertFieldByName('name[0][value]','', 'Name Field, empty');
+    $this->assertFieldByName('name[0][value]', '', 'Name Field, empty');
 
-    $user_ref = $this->web_user->name->value . ' (' . $this->web_user->id() . ')';
-    $this->assertFieldByName('user_id[0][target_id]', $user_ref,'User ID reference field points to web_user' );
+    $user_ref = $this->webUser->name->value . ' (' . $this->webUser->id() . ')';
+    $this->assertFieldByName('user_id[0][target_id]', $user_ref, 'User ID reference field points to web_user');
 
     // Post content, save an instance. Go back to list after saving.
     $edit = array(
@@ -92,11 +96,10 @@ class ContentEntityExampleTest extends WebTestBase {
 
     // Confirm deletion.
     $this->assertLink(t('Cancel'));
-    $this->drupalPostForm(NULL,array(),'Delete');
+    $this->drupalPostForm(NULL, array(), 'Delete');
 
     // Back to list, must be empty.
     $this->assertNoText('test name');
-
 
     // Settings page.
     $this->drupalGet('admin/structure/content_entity_example_settings');

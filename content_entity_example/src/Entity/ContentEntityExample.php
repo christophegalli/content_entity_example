@@ -158,7 +158,6 @@ class ContentEntityExample extends ContentEntityBase implements ContentEntityExa
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-
     $fields['langcode'] = FieldDefinition::create('language')
       ->setLabel(t('Language code'))
       ->setDescription(t('The language code of ContentEntityExample entity.'));

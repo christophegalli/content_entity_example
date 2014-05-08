@@ -42,7 +42,7 @@ function content_entity_example_schema() {
         'length' => 12,
         'not null' => TRUE,
         'default' => '',
-        ),
+      ),
       'created' => array(
         'description' => 'The Unix timestamp when the entity was created.',
         'type' => 'int',
