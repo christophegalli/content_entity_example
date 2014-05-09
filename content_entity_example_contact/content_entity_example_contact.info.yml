@@ -1,5 +1,5 @@
 name: Content Entity Example
 type: module
-description: 'Provides ContentEntityExample entity.'
+description: 'Provides ContentEntityExampleContact entity.'
 package: Example modules
 core: 8.x

@@ -4,12 +4,13 @@
  * Contains \Drupal\content_entity_example\Entity\ContentEntityExample.
  */
 
-namespace Drupal\content_entity_example\Entity;
+namespace Drupal\content_entity_example_contact\Entity;
+
 use Drupal\Core\Entity\EntityStorageInterface;
 use Drupal\Core\Field\FieldDefinition;
 use Drupal\Core\Entity\ContentEntityBase;
 use Drupal\Core\Entity\EntityTypeInterface;
-use Drupal\content_entity_example\ContentEntityExampleInterface;
+use Drupal\content_entity_example_contact\ContactInterface;
 use Drupal\user\UserInterface;
 /**
  * Defines the ContentEntityExample entity.
@@ -17,7 +18,7 @@ use Drupal\user\UserInterface;
  * @ingroup content_entity_example
  *
  * @ContentEntityType(
- *   id = "content_entity_example",
+ *   id = "content_entity_example_contact",
  *   label = @Translation("ContentEntityExample entity"),
  *   controllers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
@@ -45,7 +46,7 @@ use Drupal\user\UserInterface;
  *   }
  * )
  */
-class ContentEntityExample extends ContentEntityBase implements ContentEntityExampleInterface {
+class Contact extends ContentEntityBase implements ContentEntityExampleInterface {
 
   /**
    * {@inheritdoc}

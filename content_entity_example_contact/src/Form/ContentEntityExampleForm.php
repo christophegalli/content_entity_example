@@ -4,7 +4,7 @@
  * Definition of Drupal\content_entity_example\Entity\Form\ContentEntityExampleFormController.
  */
 
-namespace Drupal\content_entity_example\Entity\Form;
+namespace Drupal\content_entity_example_contact\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Language\Language;
