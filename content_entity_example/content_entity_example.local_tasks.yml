@@ -1,0 +1,20 @@
+contact.settings_tab:
+  route_name: content_entity_example.settings
+  title: 'Settings'
+  base_route: contact.settings
+
+contact.view:
+  route_name: contact.view
+  base_route: contact.view
+  title: 'View'
+
+contact.page_edit:
+  route_name: contact.edit
+  base_route: contact.view
+  title: Edit
+
+contact.delete_confirm:
+  route_name: contact.delete
+  base_route: contact.view
+  title: Delete
+  weight: 10

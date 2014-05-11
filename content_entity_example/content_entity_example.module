@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\content_entity_example\content_entity_example.module
+ */
+
+/**
+ * @defgroup content_entity_example Example: Content Entity
+ * @ingroup examples
+ * @{
+ * Example of how to define a content entity.
+ * }
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function content_entity_example_permission() {
+  return array(
+    'delete contact entity' => array(
+      'title' => t('Delete entity content.'),
+    ),
+    'add contact entity' => array(
+      'title' => t('Add entity content'),
+    ),
+    'view contact entity' => array(
+      'title' => t('View entity content'),
+    ),
+    'edit contact entity' => array(
+      'title' => t('Edit entity content'),
+    ),
+    'administer contact entity' => array(
+      'title' => t('Administer settings'),
+    ),
+  );
+}
