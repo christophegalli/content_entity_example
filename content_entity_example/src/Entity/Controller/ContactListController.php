@@ -35,7 +35,7 @@ class ContactListController extends EntityListBuilder {
     /* @var $entity \Drupal\content_entity_example\Entity\Contact */
     $row['id'] = $entity->id();
     $row['name'] = \Drupal::l($this->getLabel($entity),
-      'contact.view', array(
+      'content_entity_example.contact_view', array(
         'content_entity_example_contact' => $entity->id(),
       ));
     $row['first_name'] = $entity->first_name->value;

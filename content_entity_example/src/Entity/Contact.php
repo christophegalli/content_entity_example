@@ -40,9 +40,9 @@ use Drupal\user\UserInterface;
  *     "uuid" = "uuid"
  *   },
  *   links = {
- *     "edit-form" = "contact.edit",
- *     "admin-form" = "contact.settings",
- *     "delete-form" = "contact.delete"
+ *     "edit-form" = "content_entity_example.contact_edit",
+ *     "admin-form" = "content_entity_example.contact_settings",
+ *     "delete-form" = "content_entity_example.contact_delete"
  *   }
  * )
  */

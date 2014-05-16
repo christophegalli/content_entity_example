@@ -4,7 +4,7 @@
  * Definition of Drupal\content_entity_example\Entity\Form\ContentEntityExampleFormController.
  */
 
-namespace Drupal\content_entity_example_contact\Form;
+namespace Drupal\content_entity_example\Form;
 
 use Drupal\Core\Entity\ContentEntityForm;
 use Drupal\Core\Language\Language;
@@ -40,7 +40,7 @@ class ContactForm extends ContentEntityForm {
   public function submit(array $form, array &$form_state) {
     // Build the entity object from the submitted values.
     $entity = parent::submit($form, $form_state);
-    $form_state['redirect_route']['route_name'] = 'contact.list';
+    $form_state['redirect_route']['route_name'] = 'content_entity_example.contact_list';
 
     return $entity;
   }

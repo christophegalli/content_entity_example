@@ -7,7 +7,7 @@ content_entity_example.contact_view:
     _entity_access: 'content_entity_example_contact.view'
 
 content_entity_example.contact_list:
-  path: '/content_entity_example_contact/list'
+  path: '/contact/list'
   defaults:
     _entity_list: 'content_entity_example_contact'
     _title: 'Contact List'
@@ -22,15 +22,15 @@ content_entity_example.contact_add:
   requirements:
     _entity_create_access: 'content_entity_example_contact'
 
-content_entity_example.contact_edit:
-  path: '/content_entity_example_contact/{content_entity_example_contact}/edit'
+contact.edit:
+  path: '/content_entity_example/{content_entity_example_contact}/edit'
   defaults:
     _entity_form: content_entity_example_contact.edit
     _title: 'Edit Contact'
   requirements:
     _entity_access: 'content_entity_example_contact.edit'
 
-content_entity_example.contact_delete:
+contact.delete:
   path: '/contact/{content_entity_example_contact}/delete'
   defaults:
     _entity_form: content_entity_example_contact.delete
@@ -38,7 +38,7 @@ content_entity_example.contact_delete:
   requirements:
     _entity_access: 'content_entity_example_contact.delete'
 
-content_entity_example.contact_settings:
+contact.settings:
   path: 'admin/structure/content_entity_example_contact_settings'
   defaults:
    _form: '\Drupal\content_entity_example\Form\ContactSettingsForm'

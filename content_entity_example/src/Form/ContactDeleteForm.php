@@ -29,7 +29,7 @@ class ContactDeleteForm extends ContentEntityConfirmFormBase {
    */
   public function getCancelRoute() {
     return array(
-      'route_name' => 'contact.list',
+      'route_name' => 'content_entity_example.contact_list',
     );
   }
 
@@ -47,7 +47,7 @@ class ContactDeleteForm extends ContentEntityConfirmFormBase {
     $this->entity->delete();
 
     watchdog('content', '@type: deleted %title.', array('@type' => $this->entity->bundle(), '%title' => $this->entity->label()));
-    $form_state['redirect_route']['route_name'] = 'contact.list';
+    $form_state['redirect_route']['route_name'] = 'content_entity_example.contact_list';
   }
 
 }
