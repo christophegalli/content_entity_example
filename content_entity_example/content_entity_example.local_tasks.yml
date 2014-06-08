@@ -1,7 +1,7 @@
 contact.settings_tab:
   route_name: content_entity_example.contact_settings
   title: 'Settings'
-  base_route: contact.settings
+  base_route: content_entity_example.contact_settings
 
 content_entity_example.contact_view:
   route_name: content_entity_example.contact_view
