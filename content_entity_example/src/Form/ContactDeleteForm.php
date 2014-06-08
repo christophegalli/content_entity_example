@@ -2,12 +2,13 @@
 
 /**
  * @file
- * Contains \Drupal\content_entity_example\Entity\Form\ContactDeleteForm
+ * Contains \Drupal\content_entity_example\Entity\Form\ContactDeleteForm.
  */
 
 namespace Drupal\content_entity_example\Form;
 
 use Drupal\Core\Entity\ContentEntityConfirmFormBase;
+use Drupal\Core\Url;
 
 /**
  * Provides a form for deleting a content_entity_example entity.
@@ -28,9 +29,7 @@ class ContactDeleteForm extends ContentEntityConfirmFormBase {
    * {@inheritdoc}
    */
   public function getCancelRoute() {
-    return array(
-      'route_name' => 'content_entity_example.contact_list',
-    );
+    return new Url('content_entity_example.contact_list');
   }
 
   /**
