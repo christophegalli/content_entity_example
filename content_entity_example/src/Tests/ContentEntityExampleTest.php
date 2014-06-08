@@ -40,11 +40,11 @@ class ContentEntityExampleTest extends WebTestBase {
     parent::setUp();
 
     $this->webUser = $this->drupalCreateUser(array(
-     'add content_entity_example entity',
-     'edit content_entity_example entity',
-     'view content_entity_example entity',
-     'delete content_entity_example entity',
-     'administer content_entity_example entity'));
+     'add contact entity',
+     'edit contact entity',
+     'view contact entity',
+     'delete contact entity',
+     'administer contact entity'));
     $this->drupalPlaceBlock('system_menu_block:tools', array());
   }
 
@@ -54,21 +54,23 @@ class ContentEntityExampleTest extends WebTestBase {
   public function testContentEntityExample() {
 
     // Anonymous User should not see the link to the listing.
-    $this->assertNoText(t('Content Entity Example Listing'));
+    $this->assertNoText(t('Contacts Listing'));
 
     $this->drupalLogin($this->webUser);
 
     // Web_user user has the right to view listing.
-    $this->assertLink(t('Content Entity Example Listing'));
+    $this->assertLink(t('Contacts Listing'));
 
-    $this->clickLink(t('Content Entity Example Listing'));
+    $this->clickLink(t('Contacts Listing'));
 
     // WebUser can add entity content.
-    $this->assertLink(t('Add Content Entity Example Content'));
+    $this->assertLink(t('Add Contact'));
 
-    $this->clickLink(t('Add Content Entity Example Content'));
+    $this->clickLink(t('Add Contact'));
 
     $this->assertFieldByName('name[0][value]', '', 'Name Field, empty');
+    $this->assertFieldByName('name[0][value]', '', 'First Name Field, empty');
+    $this->assertFieldByName('name[0][value]', '', 'Gender Field, empty');
 
     $user_ref = $this->webUser->name->value . ' (' . $this->webUser->id() . ')';
     $this->assertFieldByName('user_id[0][target_id]', $user_ref, 'User ID reference field points to web_user');
@@ -76,6 +78,8 @@ class ContentEntityExampleTest extends WebTestBase {
     // Post content, save an instance. Go back to list after saving.
     $edit = array(
       'name[0][value]' => 'test name',
+      'first_name[0][value]' => 'test first name',
+      'gender[0][value]' => 'test gender',
     );
     $this->drupalPostForm(NULL, $edit, t('Save'));
 
@@ -87,7 +91,9 @@ class ContentEntityExampleTest extends WebTestBase {
 
     // Entity shown.
     $this->assertText(t('test name'));
-    $this->assertLink(t('Add Content Entity Example Content'));
+    $this->assertText(t('test first name'));
+    $this->assertText(t('test gender'));
+    $this->assertLink(t('Add Contact'));
     $this->assertLink(t('Edit'));
     $this->assertLink(t('Delete'));
 
@@ -102,8 +108,8 @@ class ContentEntityExampleTest extends WebTestBase {
     $this->assertNoText('test name');
 
     // Settings page.
-    $this->drupalGet('admin/structure/content_entity_example_settings');
-    $this->assertText(t('ContentEntityExample Settings'));
+    $this->drupalGet('admin/structure/content_entity_example_contact_settings');
+    $this->assertText(t('Contact Settings'));
 
   }
 }
