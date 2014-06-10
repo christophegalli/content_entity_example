@@ -1,0 +1,6 @@
+content_entity_example.contact_add:
+  route_name: content_entity_example.contact_add
+  title: 'Add Contact'
+  appears_on:
+    - content_entity_example.contact_list
+    - content_entity_example.contact_view

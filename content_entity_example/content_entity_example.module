@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Contains Drupal\content_entity_example\content_entity_example.module
+ */
+
+use Symfony\Component\HttpFoundation\Request;
+
+/**
+ * @defgroup content_entity_example Example: Content Entity
+ * @ingroup examples
+ * @{
+ * Example of how to define a content entity.
+ * }
+ */
+
+/**
+ * Implements hook_permission().
+ */
+function content_entity_example_permission() {
+  return array(
+    'delete contact entity' => array(
+      'title' => t('Delete entity content.'),
+    ),
+    'add contact entity' => array(
+      'title' => t('Add entity content'),
+    ),
+    'view contact entity' => array(
+      'title' => t('View entity content'),
+    ),
+    'edit contact entity' => array(
+      'title' => t('Edit entity content'),
+    ),
+    'administer contact entity' => array(
+      'title' => t('Administer settings'),
+    ),
+  );
+}
+
+/**
+ * Implements hook_help().
+ */
+function content_entity_example_help($route_name, Request $request) {
+  switch ($route_name) {
+    // Main module help for the block module.
+    case 'content_entity_example.contact_list':
+      return '<p>' .
+        t('Content Entity Example implements a Contacts model. These contacts are fieldable entities. You can manage the fields on the <a href="@adminlink">Contacts admin page</a>.', array(
+          '@adminlink' => \Drupal::urlGenerator()->generateFromRoute('content_entity_example.contact_settings'),
+          )
+        ) . '</p>';
+  }
+}
