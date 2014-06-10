@@ -54,14 +54,14 @@ class ContentEntityExampleTest extends WebTestBase {
   public function testContentEntityExample() {
 
     // Anonymous User should not see the link to the listing.
-    $this->assertNoText(t('Contacts Listing'));
+    $this->assertNoText(t('Content Entity Example: Contacts Listing'));
 
     $this->drupalLogin($this->webUser);
 
     // Web_user user has the right to view listing.
-    $this->assertLink(t('Contacts Listing'));
+    $this->assertLink(t('Content Entity Example: Contacts Listing'));
 
-    $this->clickLink(t('Contacts Listing'));
+    $this->clickLink(t('Content Entity Example: Contacts Listing'));
 
     // WebUser can add entity content.
     $this->assertLink(t('Add Contact'));
