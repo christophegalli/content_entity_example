@@ -48,3 +48,5 @@ class ContactAccessController extends EntityAccessController {
     return $account->hasPermission('add contact entity');
   }
 }
+
+

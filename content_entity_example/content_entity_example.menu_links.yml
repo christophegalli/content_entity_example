@@ -1,5 +1,5 @@
 content_entity_example.contact_list:
-  title: Contacts Listing
+  title: 'Content Entity Example: Contacts Listing'
   route_name: content_entity_example.contact_list
   description: 'List Contacts'
   weight: 10
