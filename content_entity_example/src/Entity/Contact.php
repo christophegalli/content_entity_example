@@ -156,13 +156,14 @@ class Contact extends ContentEntityBase implements ContactInterface {
       ->setDisplayConfigurable('form', TRUE)
       ->setDisplayConfigurable('view', TRUE);
 
-    $fields['gender'] = FieldDefinition::create('string')
+    $fields['gender'] = FieldDefinition::create('list_text')
       ->setLabel(t('Gender'))
-      ->setDescription(t('The gender of the ContentEntityExample entity.'))
+      ->setDescription(t('The gender of the Contact entity.'))
       ->setSettings(array(
-        'default_value' => '',
-        'max_length' => 255,
-        'text_processing' => 0,
+        'allowed_values' => array(
+          'female' => 'female',
+          'male' => 'male',
+        ),
       ))
       ->setDisplayOptions('view', array(
         'label' => 'above',
