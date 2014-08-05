@@ -18,7 +18,7 @@ use Drupal\simpletest\WebTestBase;
 class ContentEntityExampleTest extends WebTestBase {
 
   public static $modules = array('content_entity_example', 'block',
-    'entity_reference');
+    'entity_reference', 'list_text');
 
   protected $webUser;
 
