@@ -7,6 +7,7 @@
 namespace Drupal\content_entity_example\Form;
 
 use Drupal\Core\Form\FormBase;
+use Drupal\Core\Form\FormStateInterface;
 
 /**
  * Class ContentEntityExampleSettingsForm.
@@ -15,7 +16,7 @@ use Drupal\Core\Form\FormBase;
  */
 class ContactSettingsForm extends FormBase {
   /**
-   * Returns a unique string identifying the form.
+   * Returns a unique string idenying the form.
    *
    * @return string
    *   The unique string identifying the form.
@@ -27,12 +28,12 @@ class ContactSettingsForm extends FormBase {
   /**
    * Form submission handler.
    *
-   * @param array $form
+   * @param FormStateInterface $form
    *   An associative array containing the structure of the form.
    * @param array $form_state
    *   An associative array containing the current state of the form.
    */
-  public function submitForm(array &$form, array &$form_state) {
+  public function submitForm(array &$form, FormStateInterface $form_state) {
     // Empty implementation of the abstract submit class.
   }
 
@@ -44,10 +45,10 @@ class ContactSettingsForm extends FormBase {
    *
    * @param array $form
    *   An associative array containing the structure of the form.
-   * @param array $form_state
+   * @param FormStateInterface $form_state
    *   An associative array containing the current state of the form.
    */
-  public function buildForm(array $form, array &$form_state) {
+  public function buildForm(array $form, FormStateInterface $form_state) {
     $form['contact_settings']['#markup'] = 'Settings form for ContentEntityExample. Manage field settings here.';
     return $form;
   }

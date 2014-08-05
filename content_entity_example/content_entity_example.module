@@ -41,14 +41,14 @@ function content_entity_example_permission() {
 /**
  * Implements hook_help().
  */
-function content_entity_example_help($route_name, Request $request) {
+function content_entity_example_help($route_name) {
   switch ($route_name) {
     // Main module help for the block module.
     case 'content_entity_example.contact_list':
       return '<p>' .
-        t('Content Entity Example implements a Contacts model. These contacts are fieldable entities. You can manage the fields on the <a href="@adminlink">Contacts admin page</a>.', array(
+      t('Content Entity Example implements a Contacts model. These contacts are fieldable entities. You can manage the fields on the <a href="@adminlink">Contacts admin page</a>.', array(
           '@adminlink' => \Drupal::urlGenerator()->generateFromRoute('content_entity_example.contact_settings'),
-          )
-        ) . '</p>';
+        )
+      ) . '</p>';
   }
 }
