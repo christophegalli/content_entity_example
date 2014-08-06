@@ -17,8 +17,7 @@ use Drupal\simpletest\WebTestBase;
  */
 class ContentEntityExampleTest extends WebTestBase {
 
-  public static $modules = array('content_entity_example', 'block',
-    'entity_reference', 'list_text');
+  public static $modules = array('content_entity_example', 'block');
 
   protected $webUser;
 
@@ -79,7 +78,7 @@ class ContentEntityExampleTest extends WebTestBase {
     $edit = array(
       'name[0][value]' => 'test name',
       'first_name[0][value]' => 'test first name',
-      'gender[0][value]' => 'test gender',
+      'gender' => 'male',
     );
     $this->drupalPostForm(NULL, $edit, t('Save'));
 
@@ -92,7 +91,7 @@ class ContentEntityExampleTest extends WebTestBase {
     // Entity shown.
     $this->assertText(t('test name'));
     $this->assertText(t('test first name'));
-    $this->assertText(t('test gender'));
+    $this->assertText(t('male'));
     $this->assertLink(t('Add Contact'));
     $this->assertLink(t('Edit'));
     $this->assertLink(t('Delete'));

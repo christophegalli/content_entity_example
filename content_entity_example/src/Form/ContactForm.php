@@ -41,7 +41,7 @@ class ContactForm extends ContentEntityForm {
   public function submit(array $form, FormStateInterface $form_state) {
     // Build the entity object from the submitted values.
     $entity = parent::submit($form, $form_state);
-    $form_state['redirect_route']['route_name'] = 'content_entity_example.contact_list';
+    $form_state->setRedirect('content_entity_example.contact_list');
 
     return $entity;
   }
