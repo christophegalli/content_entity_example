@@ -18,57 +18,56 @@ use Drupal\user\UserInterface;
  * @ingroup content_entity_example
  *
  * This is the main definition of the entity type. From it, an entityType is
- * derived. The most important properties in this example are:
+ * derived. The most important properties in this example are listed below.
  *
- * - id:          The unique identifier of this entityType. It follows the
- *                pattern 'moduleName_xyz' to avoid naming conflicts.
+ * id: The unique identifier of this entityType. It follows the pattern
+ * 'moduleName_xyz' to avoid naming conflicts.
  *
- * - label:       Human readable name of the entity type.
+ * label: Human readable name of the entity type.
  *
- * - controllers: Controller classes are used for different tasks. You can use
- *                standard controllers provided by D8 or build your own
- *                controller, most probably derived from the standard class.
+ * controllers: Controller classes are used for different tasks. You can use
+ * standard controllers provided by D8 or build your own controller, most
+ * probably derived from the standard class. In detail:
  *
- *                view_builder: we use the standard controller to view an
- *                              instance. It is called when a route lists an
- *                              '_entity_view' default for the entityType
- *                              (see routing.yml for details. The view can be
- *                              manipulated by using the standard drupal tools
- *                              in the settings.
- *                list builder: We derive out own list builder class from the
- *                              entityListBuilder to control the presentation.
- *                              If there is a view available for this entity
- *                              from the views module, it overrides the list
- *                              builder. @todo: any view? naming convention?
- *                form:         We derive our own forms to add functionality
- *                              like additional fields, redirects etc.
- *                              These forms are called when the routing list
- *                              an '_entity_form' default for the entityType.
- *                              Depending on the suffix (.add/.edit/.delete)
- *                              in the route, the correct form is called.
- *                access:       Our own accessController where we determine
- *                              access rights based on permissions.
+ * - view_builder: we use the standard controller to view an instance. It is
+ *   called when a route lists an '_entity_view' default for the entityType
+ *   (see routing.yml for details. The view can be manipulated by using the
+ *   standard drupal tools in the settings.
  *
- *  - base_table: Define the name of the table used to store the data. Make
- *                sure it is unique. The schema is automatically determined
- *                from the BaseFieldDefinitions below. The table is
- *                automatically created during installation.
+ * - list builder: We derive our own list builder class from the
+ *   entityListBuilder to control the presentation.
+ *   If there is a view available for this entity from the views module, it
+ *   overrides the list builder. @todo: any view? naming convention?
  *
- *  - fieldable:  Can additional fields be added to the entity via the GUI?
- *                Analog to content types.
+ * - form: We derive our own forms to add functionality like additional fields,
+ *   redirects etc. These forms are called when the routing list an
+ *   '_entity_form' default for the entityType. Depending on the suffix
+ *   (.add/.edit/.delete) in the route, the correct form is called.
  *
- *  - entity_keys:How to access the fields. Analog to 'nid' or 'uid'.
+ * - access: Our own accessController where we determine access rights based on
+ *   permissions.
  *
- *  - links:      Provide links to do standard tasks. The 'edit-form' and
- *                'delete-form' links are added to the list built by the
- *                entityListController. They will show up as action buttons in
- *                an additional column. @todo: understand and explain the admin
- *                link thing
+ *  - base_table: Define the name of the table used to store the data. Make sure
+ *    it is unique. The schema is automatically determined from the
+ *    BaseFieldDefinitions below. The table is automatically created during
+ *    installation.
+ *
+ *  - fieldable: Can additional fields be added to the entity via the GUI?
+ *    Analog to content types.
+ *
+ *  - entity_keys: How to access the fields. Analog to 'nid' or 'uid'.
+ *
+ *  - links: Provide links to do standard tasks. The 'edit-form' and
+ *    'delete-form' links are added to the list built by the
+ *    entityListController. They will show up as action buttons in an additional
+ *    column. @todo: understand and explain the admin-link thing
  *
  * There are many more properties to be used in an entity type definition. For
  * a complete overview, please refer to the '\Drupal\Core\Entity\EntityType'
  * class definition.
  *
+ * The following construct is the actual definition of the entity type which
+ * ist read and cached. Don't forget to clear cache after changes.
  *
  * @ContentEntityType(
  *   id = "content_entity_example_contact",
@@ -82,7 +81,7 @@ use Drupal\user\UserInterface;
  *       "edit" = "Drupal\content_entity_example\Form\ContactForm",
  *       "delete" = "Drupal\content_entity_example\Form\ContactDeleteForm",
  *     },
- *     "access" = "Drupal\content_entity_example\ContactAccessController",
+ *     "access" = "Drupal\content_entity_example\ContactAccessControlHandler",
  *   },
  *   base_table = "contact",
  *   admin_permission = "administer content_entity_example entity",
@@ -120,8 +119,8 @@ class Contact extends ContentEntityBase implements ContactInterface {
   /**
    * {@inheritdoc}
    *
-   * When a new entity instance is added, make sure that the user_id entity
-   * reference points to the current user as the creator of the instance.
+   * When a new entity instance is added, set the user_id entity reference to
+   * the current user as the creator of the instance.
    */
   public static function preCreate(EntityStorageInterface $storage_controller, array &$values) {
     parent::preCreate($storage_controller, $values);
