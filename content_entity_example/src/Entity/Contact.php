@@ -34,7 +34,7 @@ use Drupal\user\UserInterface;
  *   (see routing.yml for details. The view can be manipulated by using the
  *   standard drupal tools in the settings.
  *
- * - list builder: We derive our own list builder class from the
+ * - list-builder: We derive our own list builder class from the
  *   entityListBuilder to control the presentation.
  *   If there is a view available for this entity from the views module, it
  *   overrides the list builder. @todo: any view? naming convention?
@@ -198,7 +198,7 @@ class Contact extends ContentEntityBase implements ContactInterface {
       ->setReadOnly(TRUE);
 
     // Name field for the contact.
-    // We  set display options for the view as well as the form.
+    // We set display options for the view as well as the form.
     // Users with correct privileges can change the view and edit configuration.
 
     $fields['name'] = FieldDefinition::create('string')
@@ -270,7 +270,7 @@ class Contact extends ContentEntityBase implements ContactInterface {
     // Owner field of the contact.
     // Entity reference field, holds the reference to the user object.
     // The view shows the user name field of the user.
-    // The form presents a autocomplete field for the user name.
+    // The form presents a auto complete field for the user name.
     $fields['user_id'] = FieldDefinition::create('entity_reference')
       ->setLabel(t('User Name'))
       ->setDescription(t('The Name of the associated user.'))

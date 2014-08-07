@@ -16,7 +16,7 @@ use Drupal\Core\Session\AccountInterface;
  *
  * @see \Drupal\comment\Entity\Comment.
  */
-class ContactAccessController extends EntityAccessControlHandler {
+class ContactAccessControlHandler extends EntityAccessControlHandler {
 
   /**
    * {@inheritdoc}
