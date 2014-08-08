@@ -16,7 +16,7 @@ use Drupal\Core\Form\FormStateInterface;
  */
 class ContactSettingsForm extends FormBase {
   /**
-   * Returns a unique string idenying the form.
+   * Returns a unique string identifying the form.
    *
    * @return string
    *   The unique string identifying the form.

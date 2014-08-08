@@ -1,3 +1,5 @@
+# Define the 'local' links for the module
+
 contact.settings_tab:
   route_name: content_entity_example.contact_settings
   title: 'Settings'

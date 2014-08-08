@@ -28,6 +28,8 @@ class ContactDeleteForm extends ContentEntityConfirmFormBase {
 
   /**
    * {@inheritdoc}
+   *
+   * If the delete command is canceled, return to the contact list.
    */
   public function getCancelURL() {
     return new Url('content_entity_example.contact_list');
@@ -42,11 +44,17 @@ class ContactDeleteForm extends ContentEntityConfirmFormBase {
 
   /**
    * {@inheritdoc}
+   *
+   * Delete the entity and log the event. log() replaces the watchdog.
    */
   public function submit(array $form, FormStateInterface $form_state) {
     $this->entity->delete();
 
-    watchdog('content', '@type: deleted %title.', array('@type' => $this->entity->bundle(), '%title' => $this->entity->label()));
+    \Drupal::logger('content_entity_example')->log(WATCHDOG_INFO, '@type: deleted %title.',
+      array(
+        '@type' => $this->entity->bundle(),
+        '%title' => $this->entity->label(),
+      ));
     $form_state->setRedirect('content_entity_example.contact_list');
   }
 

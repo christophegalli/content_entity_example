@@ -20,6 +20,9 @@ class ContactAccessController extends EntityAccessController {
 
   /**
    * {@inheritdoc}
+   *
+   * Link the activities to the permissions. checkAccess is called with the
+   * $operation as defined in the routing.yml file.
    */
   protected function checkAccess(EntityInterface $entity, $operation, $langcode, AccountInterface $account) {
 
@@ -43,10 +46,11 @@ class ContactAccessController extends EntityAccessController {
 
   /**
    * {@inheritdoc}
+   *
+   * Separate from the checkAccess because the entity does not yet exist, it
+   * will be created during the 'add' process.
    */
   protected function checkCreateAccess(AccountInterface $account, array $context, $entity_bundle = NULL) {
     return $account->hasPermission('add contact entity');
   }
 }
-
-

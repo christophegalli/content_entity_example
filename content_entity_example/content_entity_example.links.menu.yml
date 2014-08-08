@@ -1,3 +1,5 @@
+# Define the menu links for this module
+
 content_entity_example.contact_list:
   title: 'Content Entity Example: Contacts Listing'
   route_name: content_entity_example.contact_list

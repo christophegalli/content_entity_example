@@ -19,6 +19,11 @@ class ContactListController extends EntityListBuilder {
 
   /**
    * {@inheritdoc}
+   *
+   * Building the header and content lines for the contact list.
+   *
+   * Calling the parent::buildHeader() adds a column for the possible actions
+   * and inserts the 'edit' and 'delete' links as defined for the entity type.
    */
   public function buildHeader() {
     $header['id'] = t('ContactID');

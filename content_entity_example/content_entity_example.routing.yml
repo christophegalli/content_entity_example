@@ -1,23 +1,31 @@
+# This file brings everything together. Very nifty!
+
+# Route name can be used in sevaral place (links, redirects, local actions etc.)
 content_entity_example.contact_view:
   path: '/content_entity_example_contact/{content_entity_example_contact}'
   defaults:
+  # Calls the view controller, defined in the annotation of the contact entity
     _entity_view: 'content_entity_example_contact'
     _title: 'Contact Content'
   requirements:
+  # Calls the access controller of the entity, $operation 'view'
     _entity_access: 'content_entity_example_contact.view'
 
 content_entity_example.contact_list:
   path: '/content_entity_example_contact/list'
   defaults:
+  # Calls the list controller, defined in the annotation of the contact entity
     _entity_list: 'content_entity_example_contact'
     _title: 'Contact List'
   requirements:
+  # Checks for permission directly
     _permission: 'view contact entity'
 
 content_entity_example.contact_add:
   path: '/content_entity_example_contact/add'
   defaults:
-    _entity_form: content_entity_example_contact.add
+  # Calls the form.add controller, defined in the contact entity
+   _entity_form: content_entity_example_contact.add
     _title: 'Add Contact'
   requirements:
     _entity_create_access: 'content_entity_example_contact'
@@ -25,7 +33,8 @@ content_entity_example.contact_add:
 content_entity_example.contact_edit:
   path: '/content_entity_example_contact/{content_entity_example_contact}/edit'
   defaults:
-    _entity_form: content_entity_example_contact.edit
+  # Calls the form.edit controller, defined in the contact entity
+   _entity_form: content_entity_example_contact.edit
     _title: 'Edit Contact'
   requirements:
     _entity_access: 'content_entity_example_contact.edit'
@@ -33,6 +42,7 @@ content_entity_example.contact_edit:
 content_entity_example.contact_delete:
   path: '/contact/{content_entity_example_contact}/delete'
   defaults:
+    # Calls the form.delete controller, defined in the contact entity
     _entity_form: content_entity_example_contact.delete
     _title: 'Delete Contact'
   requirements:
