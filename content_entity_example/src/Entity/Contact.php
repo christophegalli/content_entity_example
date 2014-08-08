@@ -75,7 +75,7 @@ use Drupal\user\UserInterface;
  *   label = @Translation("Contact entity"),
  *   controllers = {
  *     "view_builder" = "Drupal\Core\Entity\EntityViewBuilder",
- *     "list_builder" = "Drupal\content_entity_example\Entity\Controller\ContactListController",
+ *     "list_builder" = "Drupal\content_entity_example\Entity\Controller\ContactListBuilder",
  *
  *     "form" = {
  *       "add" = "Drupal\content_entity_example\Form\ContactForm",

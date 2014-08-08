@@ -15,7 +15,7 @@ use Drupal\Core\Entity\EntityListBuilder;
  *
  * @ingroup content_entity_example
  */
-class ContactListController extends EntityListBuilder {
+class ContactListBuilder extends EntityListBuilder {
 
   /**
    * {@inheritdoc}

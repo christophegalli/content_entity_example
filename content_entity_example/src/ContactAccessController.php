@@ -7,7 +7,7 @@
 
 namespace Drupal\content_entity_example;
 
-use Drupal\Core\Entity\EntityAccessController;
+use Drupal\Core\Entity\EntityAccessControlHandler;
 use Drupal\Core\Entity\EntityInterface;
 use Drupal\Core\Session\AccountInterface;
 
@@ -16,7 +16,7 @@ use Drupal\Core\Session\AccountInterface;
  *
  * @see \Drupal\comment\Entity\Comment.
  */
-class ContactAccessController extends EntityAccessController {
+class ContactAccessController extends EntityAccessControlHandler {
 
   /**
    * {@inheritdoc}
